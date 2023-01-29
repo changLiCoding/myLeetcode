@@ -1,14 +1,14 @@
 const isSymmetric = (root) => {
   if (root === null) return true;
 
-  const stack = [root.left, root.right];
+  const arr = [root.left, root.right];
 
-  while (stack.length) {
-    const node1 = stack.shift();
-    const node2 = stack.shift();
+  while (arr.length) {
+    const node1 = arr.shift();
+    const node2 = arr.shift();
     if (!node1 && !node2) continue;
     if (!node1 || !node2 || node2.val !== node2.val) return false;
-    stack.push(node1.left, node2.right, node1.right, node2.left);
+    arr.push(node1.left, node2.right, node1.right, node2.left);
 
   }
 
@@ -31,22 +31,19 @@ const isSymmetric2 = (root) => {
 
 };
 
-const isSymmetric3 = (root) => {
-  if (root === null) return true;
-  const stack = [];
-  stack.push([root.left, root.right]);
+const isSymmetric3 = function(root) {
+  const stack = [[root.left, root.right]];
   while (stack.length) {
-    let [node1, node2] = stack.pop();
-    if (node1 === null && node2 === null) continue;
-    if (node1 === null || node2 === null) return false;
-    if (node1.val === node2.val) {
-      stack.push(node1.right, node2.left);
-      stack.push(node1.left, node2.right);
+    let [leftNode, rightNode] = stack.pop();
+    if (!leftNode && !rightNode) continue;
+    if (!leftNode || !rightNode || leftNode.val !== rightNode.val) return false;
+    if (leftNode.val === rightNode.val) {
+      stack.push([leftNode.right, rightNode.left]);
+      stack.push([leftNode.left, rightNode.right]);
 
     } else {
       return false;
     }
-
   }
   return true;
 };
