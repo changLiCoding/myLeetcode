@@ -23,3 +23,22 @@ const binaryTreePaths = (root) => {
 
   return res;
 };
+
+
+const binaryTreePaths1 = (root) => {
+  const path = [];
+  if (!root)  return path;
+  if (!root.left && !root.right) return [[root.val]];
+
+  path.push(root.val);
+  if (root.left) {
+
+    binaryTreePaths1(root.left);
+  }
+  if (root.right) {
+
+    binaryTreePaths1(root.right);
+  }
+
+  return path;
+};
