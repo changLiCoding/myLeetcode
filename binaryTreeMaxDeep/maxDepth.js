@@ -13,3 +13,33 @@ let maxDepth = function(root) {
   }
   return num;
 };
+
+
+
+
+const maxDepth1 = (root) => {
+  if (!root) return 0;
+  let count = 0;
+
+  const stack = [root];
+
+  while (!stack.length) {
+    const current = stack.shift();
+    stack.push(current.left, current.right);
+    count++;
+    let lengthOfStack = stack.length;
+    while (lengthOfStack--) {
+      const current = stack.shift();
+      if (current.left) stack.push(current.left);
+      if (current.right) stack.push(current.right);
+    }
+
+
+  }
+
+  //[root, root.left, root.right]
+  return count;
+};
+
+
+
