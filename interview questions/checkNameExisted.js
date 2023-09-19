@@ -7,14 +7,30 @@ const users = [
 	{ id: 4, name: "Andrew", email: "andrew@gmail.com", isActive: true, age: 17 },
 ];
 
-const checkNameExisted = (arr, name) => {
-	return arr.filter((user) => user.isActive).some((user) => user.name === name);
+// const checkNameExisted = (arr, name) => {
+// 	return arr.filter((user) => user.isActive).some((user) => user.name === name);
+// };
+
+// const check2 = (arr, name) => {
+// 	return Boolean(
+// 		arr.filter((user) => user.isActive).find((user) => user.name === name)
+// 	);
+// };
+
+// console.log(checkNameExisted(users, "tom"));
+
+const checkNameExistedCaseinsensitive = (objArr, name) => {
+	let res = false;
+
+	for (let obj of objArr) {
+		console.log(obj.name);
+		if (obj.name.toLowerCase() === name) {
+			res = true;
+			break;
+		}
+	}
+
+	return res;
 };
 
-const check2 = (arr, name) => {
-	return Boolean(
-		arr.filter((user) => user.isActive).find((user) => user.name === name)
-	);
-};
-
-console.log(checkNameExisted(users, "tom"));
+console.log(checkNameExistedCaseinsensitive(users, "tom"));
