@@ -4,7 +4,7 @@ const maxProfit = (prices) => {
 	let sell = 1;
 	while (sell < prices.length) {
 		if (prices[buy] < prices[sell]) {
-			let profit = prices[sell] - prices[buy]; // our current profit
+			let profit = prices[sell] - prices[buy];
 
 			max = Math.max(max, profit);
 		} else {
