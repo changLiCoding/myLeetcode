@@ -19,18 +19,22 @@ const users = [
 
 // console.log(checkNameExisted(users, "tom"));
 
-const checkNameExistedCaseinsensitive = (objArr, name) => {
-	let res = false;
+// const checkNameExistedCaseinsensitive = (objArr, name) => {
+// 	let res = false;
 
-	for (let obj of objArr) {
-		console.log(obj.name);
-		if (obj.name.toLowerCase() === name) {
-			res = true;
-			break;
-		}
-	}
+// 	for (let obj of objArr) {
+// 		console.log(obj.name);
+// 		if (obj.name.toLowerCase() === name) {
+// 			res = true;
+// 			break;
+// 		}
+// 	}
 
-	return res;
+// 	return res;
+// };
+
+const checkNameExistedCaseinsensitive = (objects, name) => {
+	return objects.some((user) => user.name === name);
 };
 
-console.log(checkNameExistedCaseinsensitive(users, "tom"));
+console.log(checkNameExistedCaseinsensitive(users, "Tom"));

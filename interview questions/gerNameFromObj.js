@@ -7,15 +7,20 @@ const users = [
 	{ id: 4, name: "Andrew", email: "andrew@gmail.com", isActive: true, age: 17 },
 ];
 
-const getNameFromArray = (arr) => {
-	const res = [];
+// const getNameFromArray = (arr) => {
+// 	const res = [];
 
-	return arr
-		.sort((user1, user2) => {
-			return user1.age - user2.age;
-		})
-		.filter((user) => user.isActive)
-		.map((user) => user.name);
+// 	return arr
+// 		.sort((user1, user2) => {
+// 			return user1.age - user2.age;
+// 		})
+// 		.filter((user) => user.isActive)
+// 		.map((user) => user.name);
+// };
+
+const getNameFromArray = (arr) => {
+	const sortedArr = arr.sort((a, b) => a.age - b.age);
+	return sortedArr.map((user) => user.name);
 };
 
 console.log(getNameFromArray(users));

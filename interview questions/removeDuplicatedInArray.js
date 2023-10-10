@@ -17,10 +17,17 @@ const removeDupInArray = (arr) => {
 
 console.log(removeDupInArray(sample));
 
+// const removeDupByReduce = (arr) => {
+// 	return arr.reduce((preArr, currV) => {
+// 		return preArr.includes(currV) ? preArr : [...preArr, currV];
+// 	}, []);
+// };
+
 const removeDupByReduce = (arr) => {
-	return arr.reduce((preArr, currV) => {
-		return preArr.includes(currV) ? preArr : [...preArr, currV];
-	}, []);
+	return arr.reduce(
+		(acc, currV) => (acc.includes(currV) ? acc : [...acc, currV]),
+		[]
+	);
 };
 
 const sample2 = [2, 4, 5, 2, 5, 2, 7, 78, 231, 231, 45, 2, 5, 43];
