@@ -37,15 +37,35 @@
 // 	}
 // };
 
-const singleNumber = (arr) => {
-	if (arr.length <= 1) return arr[0];
-	for (let i = 0; i < arr.length; i++) {
-		const newArr = arr.filter((num) => num != arr[i]);
+// const singleNumber = (arr) => {
+// 	if (arr.length <= 1) return arr[0];
+// 	for (let i = 0; i < arr.length; i++) {
+// 		const newArr = arr.filter((num) => num != arr[i]);
 
-		if (newArr.length === arr.length - 1) {
-			return arr[i];
+// 		if (newArr.length === arr.length - 1) {
+// 			return arr[i];
+// 		}
+// 	}
+// };
+
+const singleNumber = (arr) => {
+	const container = {};
+
+	arr.forEach((element) => {
+		if (container[element]) {
+			container[element]++;
+		} else {
+			container[element] = 1;
+		}
+	});
+
+	for (let kv of Object.entries(container)) {
+		console.log(kv);
+		if (kv[1] === 1) {
+			return kv[0];
 		}
 	}
+	console.log(container);
 };
 
 const nums = [4, 1, 2, 1, 2];
