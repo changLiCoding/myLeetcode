@@ -15,19 +15,36 @@ const randomArray = [2.2, 41, 2, 5124, 561, 23, 5, 12, 3, 4];
 // 	return arr;
 // };
 
+// const sortAnArray = (arr) => {
+// 	for (let i = 0; i < arr.length - 1; i++) {
+// 		for (let y = i + 1; y < arr.length; y++) {
+// 			if (arr[i] > arr[y]) {
+// 				const temp = arr[i];
+
+// 				arr[i] = arr[y];
+
+// 				arr[y] = temp;
+// 			}
+// 		}
+// 	}
+
+// 	return arr;
+// };
+
 const sortAnArray = (arr) => {
-	for (let i = 0; i < arr.length - 1; i++) {
-		for (let y = i + 1; y < arr.length; y++) {
-			if (arr[i] > arr[y]) {
-				const temp = arr[i];
-
-				arr[i] = arr[y];
-
-				arr[y] = temp;
+	let i = 0;
+	while (i < arr.length - 1) {
+		let j = i + 1;
+		while (j < arr.length) {
+			const temp = arr[j];
+			if (arr[i] > arr[j]) {
+				arr[j] = arr[i];
+				arr[i] = temp;
 			}
+			j++;
 		}
+		i++;
 	}
-
 	return arr;
 };
 
