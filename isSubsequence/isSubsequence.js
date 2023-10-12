@@ -20,10 +20,25 @@
 // 	return arrT.join("").includes(arrS.join(""));
 // };
 
+// const isSubsequence = (s, t) => {
+// 	if (s.length > t.length) return false;
+// 	let subsequence = 0;
+// 	for (let i = 0; i < t.length; i++) {
+// 		if (s[subsequence] === t[i]) {
+// 			subsequence++;
+// 		}
+// 	}
+// 	return subsequence === s.length;
+// };
+
 const isSubsequence = (s, t) => {
 	if (s.length > t.length) return false;
+
 	let subsequence = 0;
-	for (let i = 0; i < t.length; i++) {
+
+	const tLength = t.length;
+
+	for (let i = 0; i < tLength; i++) {
 		if (s[subsequence] === t[i]) {
 			subsequence++;
 		}

@@ -76,18 +76,57 @@ const randomArray = [2.2, 41, 2, 5124, 561, 23, 5, 12, 3, 4];
 // 	return arr;
 // };
 
+// const insertionSorting = (arr) => {
+// 	let i = 1;
+// 	while (i < arr.length) {
+// 		const currentValue = arr[i];
+// 		for (let insertedIndex = i - 1; insertedIndex >= 0; insertedIndex--) {
+// 			if (currentValue >= arr[insertedIndex]) {
+// 				arr[insertedIndex + 1] = currentValue;
+// 				break;
+// 			}
+// 			arr[insertedIndex + 1] = arr[insertedIndex];
+// 		}
+// 		i++;
+// 	}
+// 	return arr;
+// };
+
+// const insertionSorting = (arr) => {
+// 	for (let i = 1; i < arr.length; i++) {
+// 		const currentValue = arr[i];
+// 		let insertedIndex = i - 1;
+// 		while (insertedIndex >= 0 && currentValue < arr[insertedIndex]) {
+// 			arr[insertedIndex + 1] = arr[insertedIndex];
+// 			insertedIndex--;
+// 		}
+// 		arr[insertedIndex + 1] = currentValue;
+// 	}
+// 	return arr;
+// };
+
+// const insertionSorting = (arr) => {
+// 	for (let i = 1; i < arr.length; i++) {
+// 		const curV = arr[i];
+// 		let insertedIndex = i - 1;
+// 		while (insertedIndex >= 0 && curV < arr[insertedIndex]) {
+// 			arr[insertedIndex + 1] = arr[insertedIndex];
+// 			insertedIndex--;
+// 		}
+// 		arr[insertedIndex + 1] = curV;
+// 	}
+// 	return arr;
+// };
+
 const insertionSorting = (arr) => {
-	let i = 1;
-	while (i < arr.length) {
-		const currentValue = arr[i];
-		for (let insertedIndex = i - 1; insertedIndex >= 0; insertedIndex--) {
-			if (currentValue >= arr[insertedIndex]) {
-				arr[insertedIndex + 1] = currentValue;
-				break;
-			}
+	for (let i = 1; i < arr.length; i++) {
+		const currV = arr[i];
+		let insertedIndex = i - 1;
+		while (insertedIndex >= 0 && currV < arr[insertedIndex]) {
 			arr[insertedIndex + 1] = arr[insertedIndex];
+			insertedIndex--;
 		}
-		i++;
+		arr[insertedIndex + 1] = currV;
 	}
 	return arr;
 };
