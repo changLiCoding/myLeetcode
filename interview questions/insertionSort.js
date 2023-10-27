@@ -118,15 +118,29 @@ const randomArray = [2.2, 41, 2, 5124, 561, 23, 5, 12, 3, 4];
 // 	return arr;
 // };
 
+// const insertionSorting = (arr) => {
+// 	for (let i = 1; i < arr.length; i++) {
+// 		const currV = arr[i];
+// 		let insertedIndex = i - 1;
+// 		while (insertedIndex >= 0 && currV < arr[insertedIndex]) {
+// 			arr[insertedIndex + 1] = arr[insertedIndex];
+// 			insertedIndex--;
+// 		}
+// 		arr[insertedIndex + 1] = currV;
+// 	}
+// 	return arr;
+// };
+
 const insertionSorting = (arr) => {
 	for (let i = 1; i < arr.length; i++) {
-		const currV = arr[i];
+		const currentValue = arr[i];
 		let insertedIndex = i - 1;
-		while (insertedIndex >= 0 && currV < arr[insertedIndex]) {
+
+		while (insertedIndex >= 0 && currentValue < arr[insertedIndex]) {
 			arr[insertedIndex + 1] = arr[insertedIndex];
 			insertedIndex--;
 		}
-		arr[insertedIndex + 1] = currV;
+		arr[insertedIndex + 1] = currentValue;
 	}
 	return arr;
 };
