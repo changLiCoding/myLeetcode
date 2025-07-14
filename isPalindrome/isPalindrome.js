@@ -14,12 +14,26 @@
 // };
 
 const isPalindrome = (str) => {
-	const stringNoSpace = str.split("").join("");
+	// const stringNoSpace = str.split("").join("");
 
-	console.log(stringNoSpace);
-	console.log(stringNoSpace.split("").reverse().join(""));
-	console.log();
-	return stringNoSpace.split("").reverse().join("") === stringNoSpace;
+	// console.log(stringNoSpace);
+	// console.log(stringNoSpace.split("").reverse().join(""));
+	// console.log();
+	// return stringNoSpace.split("").reverse().join("") === stringNoSpace;
+
+  let left = 0;
+  let right = str.length - 1;
+
+  while (left < right) {
+    if (str[left] !== str[right]) {
+      return false
+    }
+
+    left += 1
+    right -= 1
+  }
+  return true
+
 };
 
 console.log(isPalindrome("1221"));
