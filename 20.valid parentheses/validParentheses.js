@@ -14,14 +14,32 @@ function validParentheses (s) {
     '}': '{'
   };
 
+  // const stack = [];
+
+  // for (let c of s) {
+
+
+  //   if (closeMap[c]) {
+
+  //     if (stack.length && stack[stack.length - 1] === closeMap[c]) {
+  //       stack.pop();
+  //     } else {
+  //       return false;
+  //     }
+
+  //   } else {
+  //     stack.push(c)
+  //   }
+
+  // }
+  // return stack.length === 0
+
+
   const stack = [];
 
   for (let c of s) {
-
-
     if (closeMap[c]) {
-
-      if (stack.length && stack[stack.length - 1] === closeMap[c]) {
+      if (stack && stack.length > 0 && stack[stack.length - 1] === closeMap[c]) {
         stack.pop();
       } else {
         return false;
@@ -30,7 +48,7 @@ function validParentheses (s) {
     } else {
       stack.push(c)
     }
-
   }
-  return stack.length === 0
+
+  return stack.length === 0;
 }

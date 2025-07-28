@@ -17,3 +17,28 @@ function evalRPN(tokens) {
   }
   return parseInt(tokens[0]);
 }
+
+
+var evalRPN = function(tokens) {
+
+    const stack = [];
+    tokens.forEach((v, i) => {
+        if ('+-*/'.includes(v)) {
+            const num2 = stack.shift();
+            const num1 = stack.shift();
+            const res = cal(v, num1, num2)
+
+            stack.unshift(res);
+        } else {
+            stack.unshift(parseInt(v))
+        }
+    })    
+    return stack[0];
+};
+
+var cal = function (op, num1, num2) {
+    if (op === "+") return num1 + num2;
+    if (op === "-") return num1 - num2;
+    if (op === "*") return num1 * num2;
+    if (op === "/") return Math.trunc(num1 / num2);
+}
