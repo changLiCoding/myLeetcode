@@ -35,18 +35,36 @@ function validParentheses (s) {
   // return stack.length === 0
 
 
+  // const stack = [];
+
+  // for (let c of s) {
+  //   if (closeMap[c]) {
+  //     if (stack && stack.length > 0 && stack[stack.length - 1] === closeMap[c]) {
+  //       stack.pop();
+  //     } else {
+  //       return false;
+  //     }
+
+  //   } else {
+  //     stack.push(c)
+  //   }
+  // }
+
+  // return stack.length === 0;
+
   const stack = [];
 
-  for (let c of s) {
-    if (closeMap[c]) {
-      if (stack && stack.length > 0 && stack[stack.length - 1] === closeMap[c]) {
+  for (let i = 0; i < s.length; i++) {
+    if (closeMap[s[i]]) {
+      if (stack.length > 0 && stack[stack.length - 1] === closeMap[s[i]]) {
         stack.pop();
       } else {
         return false;
       }
 
+
     } else {
-      stack.push(c)
+      stack.push(s[i]);
     }
   }
 
