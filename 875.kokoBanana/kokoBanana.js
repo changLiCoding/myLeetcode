@@ -1,21 +1,23 @@
 function kokoBanana (piles, h) {
 
-  const allBanana = piles.reduce((acc, curr) => acc + curr, 0);
+  const allBananas = piles.reduce((acc, curr) => acc + curr, 0);
 
-  const maxRate = Math.max(...piles);
-  const minRate = Math.ceil(allBanana / h);
+  let minRate = Math.ceil(allBananas / h);
+  let maxRate = Math.max(...piles);
 
-  let l = minRate, r = maxRate, res = 0;
+  let res = maxRate;
 
-  while (l <= r) {
-    const minRate = Math.floor((maxRate + minRate) /2);
-    const hoursTook = piles.reduce((acc, curr) => acc + Math.ceil(curr / minRate), 0);
-    if (hoursTook <= h) {
-      res = hoursTook;
-      r = minRate - 1;
+  while (minRate <= maxRate) {
+    const mid = Math.floor((minRate + maxRate) / 2)
+    const totalHours = piles.reduce((acc, curr) => acc + Math.ceil(curr / mid), 0);
+
+    if (totalHours <= h) {
+      res = mid;
+      maxRate = mid - 1;
     } else {
-      l = minRate + 1;
+      minRate = mid + 1;
     }
   }
+
   return res;
 }
