@@ -63,3 +63,22 @@ const word1 = "abcd";
 const word2 = "pq";
 
 console.log(mergeAlternately(word1, word2));
+
+const mergeTwoArr = (arr1, arr2) => {
+  let i = 0, j = 0;
+  const res = [];
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] >= arr2[j]) {
+      res.push(arr2[j]);
+      j++;
+    } else {
+      res.push(arr1[i]);
+      i++;
+    }
+  }
+
+  if (i < arr1.length) res.push(...arr1.slice(i));
+  if (j < arr2.length) res.push(...arr2.slice(j));
+
+  return res;
+}
