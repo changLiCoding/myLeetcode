@@ -20,3 +20,4 @@ function dailyTemp (temperatures) {
 
   return res;
 }
+
