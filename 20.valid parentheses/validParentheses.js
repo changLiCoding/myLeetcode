@@ -70,3 +70,27 @@ function validParentheses (s) {
 
   return stack.length === 0;
 }
+
+const valid = (s) => {
+    const closeMap = {
+    ')': '(',
+    ']': '[',
+    '}': '{'
+  };
+
+  const stack = [];
+
+  for (let str of s) {
+    if (closeMap[str]) {
+      if (stack.length > 0 && stack[stack.length - 1] === closeMap[str]) {
+        stack.pop();
+      } else {
+        return false;
+      }
+
+    } else {
+      stack.push(str);
+    }
+  }
+  return stack.length === 0;
+}
