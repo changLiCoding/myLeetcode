@@ -30,3 +30,35 @@ MinStack.prototype.push = function (val) {
 MinStack.prototype.getMin = function () {
   return this.minStack[this.minStack.length - 1];
 }
+
+class StackClass {
+  stack = [];
+  minStack = [];
+
+  pop () {
+    this.stack.pop();
+    this.minStack.pop();
+  }
+
+  top () {
+    return this.stack.at(-1);
+  }
+
+  push (val) {
+    this.stack.push(val);
+    if (this.minStack.length === 0) {
+      this.minStack.push(val);
+      return
+    }
+
+    let min = this.getMin();
+    if (min >= val) {
+      min = val;
+    }
+    this.minStack.push(min)
+  }
+
+  getMin () {
+    return this.minStack.at(-1);
+  }
+}
