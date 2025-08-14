@@ -30,3 +30,37 @@ function threeSum(nums) {
 
   return res;
 }
+
+
+const threeSumZero = (arr) => {
+  const res = []
+  const sortedArr = arr.sort((a, b) => a - b);
+  for (let i = 0; i < sortedArr.length - 3; i++) {
+    
+    const fristNum = sortedArr[i];
+    if (fristNum > 0) break;
+    if (i > 0 && fristNum === sortedArr[i - 1]) continue;
+
+    let l = i + 1, r = arr.length - 1;
+    const target = 0 - fristNum;
+    while (l < r) {
+      
+      let sec = sortedArr[l], thd = sortedArr[r];
+
+      if (sec + thd > target) {
+        r--;
+      } else if (sec + thd < target) {
+        l++;
+      } else {
+        res.push(fristNum, sec, thd)
+        r--;
+        l++;
+        while(l < r && sortedArr[l] === sortedArr[l - 1]) {
+          l++;
+        }
+      }
+    }
+  }
+
+  return res;
+}

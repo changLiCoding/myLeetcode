@@ -40,3 +40,7 @@ const bestDeal = (nums) => {
 
   return max
 }
+
+const bestSell = (prices) => {
+
+}
