@@ -64,3 +64,25 @@ const threeSumZero = (arr) => {
 
   return res;
 }
+
+const mergeArr = (arr1, arr2) => {
+  const res = [];
+
+  let one = 0, two = 0;
+
+  while (one < arr1.length && two < arr2.length) {
+    if (arr1[one] <= arr2[two]) {
+      res.push(arr1[one]);
+      one++;
+    } else {
+      res.push(arr2[two]);
+      two++;
+    }
+  }
+
+  if (one < arr1.length) res.push(...arr1.slice(one));
+  if (two < arr2.length) res.push(...arr2.slice(two));
+
+
+  return res;
+}
