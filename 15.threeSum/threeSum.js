@@ -86,3 +86,31 @@ const mergeArr = (arr1, arr2) => {
 
   return res;
 }
+
+function threeZeroSum (arr) {
+  arr.sort((a, b) => a - b);
+  const res = []
+  for (let i = 0; i < arr.leng - 2; i++) {
+    if (arr[i] > 0) break;
+
+    const target = 0 - arr[i];
+
+    let l = i + 1, r = arr.length - 1;
+    while (l < r) {
+      if (arr[l] + arr[r] > target ) {
+        r--;
+      } else if (arr[l] + arr[r] < target) {
+        l++;
+      } else {
+        res.push([arr[i], arr[l], arr[r]]);
+        r--;
+        l++;
+        while (l < r && arr[l] === arr[l + 1] ) {
+          l++;
+        }
+      }
+    }
+  }
+
+  return res;
+}
