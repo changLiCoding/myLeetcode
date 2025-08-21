@@ -38,3 +38,39 @@ function iteration (head) {
 
   return prev;
 }
+
+function revertALinkList (head) {
+  let curr = head;
+  let prev = null;
+
+  while (!curr) {
+    const temp = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = temp;
+  }
+
+  return prev;
+}
+
+function mergeTwoArr (arr1, arr2) {
+
+  let l = 0, r = 0, res = [];
+
+  while (l < arr1.length && r < arr2.length) {
+    if (arr1[l] >= arr2[r]) {
+      
+      res.push(arr2[r])
+      r++;
+    } else {
+      res.push(arr1[l])
+      l++;
+    }
+
+    
+  }
+  
+  if (l < arr1.length) res.push(...arr1.slice(l));
+  if (r < arr2.length) res.push(...arr2.slice(r));
+  return res;
+}
