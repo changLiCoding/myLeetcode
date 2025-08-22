@@ -19,3 +19,24 @@ function mergeLinkList (list1, list2) {
 
     return dummy.next
 }
+
+
+function mergeList (head1, head2) {
+  const dummy = {val: 0, next: null};
+
+  let curr = dummy;
+
+  while (head1 && head2) {
+    if (head1.val <= head2.val) {
+      curr.next = head1
+      head1 = head1.next
+    } else {
+      curr.next = head2
+      head2 = head2.next
+    }
+
+    curr = curr.next;
+  }
+
+  return dummy.next
+}

@@ -94,3 +94,28 @@ const valid = (s) => {
   }
   return stack.length === 0;
 }
+
+function isValidParentheses (str) {
+  const stack = [];
+
+  const parentheseHolder = {
+    ')': '(',
+    '}': '{',
+    ']': '['
+  };
+
+  for (let s of str) {
+    if (parentheseHolder[s]) {
+      if (stack.length > 0 && stack.at(-1) === parentheseHolder[s]) {
+        stack.pop();
+      } else {
+        return false
+      }
+    } else {
+      stack.push(s);
+    }
+  }
+
+
+  return stack.length === 0;
+}
