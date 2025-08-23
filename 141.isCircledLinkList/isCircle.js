@@ -12,3 +12,16 @@ function isCircle (head) {
 
   return false;
 }
+
+function isValidCircle (head) {
+  const seen = new Set();
+  let cur = head
+  while (head) {
+    if (seen.has(cur)) return true;
+
+    seen.add(cur);
+    cur = cur.next;
+  }
+
+  return false;
+}
