@@ -36,3 +36,11 @@ const objArr2 = objArr.sort((a, b) => {
 })
 
 console.log(objArr, objArr2)
+
+const sorted = objArr.sort((a, b) => {
+  if (a.id === b.id) {
+    return a.name.localeCompare(b.name);
+  }
+
+  return a.id - b.id;
+})

@@ -74,3 +74,46 @@ function mergeTwoArr (arr1, arr2) {
   if (r < arr2.length) res.push(...arr2.slice(r));
   return res;
 }
+
+
+const revertALinkList = (head) => {
+  let prev = null, curr = head;
+  while (curr) {
+    const temp = curr.next;
+    curr.next = prev
+    prev = curr
+    curr = temp
+  }
+  return prev;
+}
+
+const mergeSortedLinkList = (list1, list2) => {
+
+  const dummy = {val: 0, next: null};
+  let curr = dummy;
+
+  while (list1 && list2) {
+    if (list1.val <= list2.val) {
+      curr.next = list1
+      list1 = list1.next
+    } else {
+      curr.next = list2
+      list2 = list2.next
+    }
+    curr = curr.next
+  }
+
+  return dummy.next;
+}
+
+const isCircle = (head) => {
+  const seen = new Set();
+  let cur = head;
+  while (cur) {
+    if (seen.has(cur)) return true;
+    seen.add(cur);
+    cur = cur.next;
+  }
+
+  return false;
+}
