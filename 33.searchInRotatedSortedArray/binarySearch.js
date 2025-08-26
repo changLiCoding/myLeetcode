@@ -92,3 +92,28 @@ const search2 = (arr, target) => {
 
   return -1;
 }
+
+
+const findMin = (arr) => {
+  let l = 0, r = arr.length - 1;
+  let min  = arr[0];
+
+  while (l <= r) {
+
+    if (arr[l] <= arr[r]) {
+      min = Math.min(min, arr[l]);
+    }
+
+    const mid = Math.floor((l + r) / 2);
+
+    min = Math.min(min, arr[mid]);
+
+    if (arr[l] <= arr[mid]) {
+      l = mid + 1
+    } else {
+      r = mid - 1
+    }
+
+  }
+  return min;
+}

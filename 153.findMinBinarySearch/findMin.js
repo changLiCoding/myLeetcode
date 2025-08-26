@@ -71,3 +71,30 @@ function findMin (arr) {
 
   return min
 }
+
+
+function findMinBinary (arr, target) {
+  let min = arr[0], l = 0, r = arr.length - 1;
+
+  while (l <= r) {
+
+    const mid = Math.floor((l + r) /2);
+    const midVal = arr[mid];
+    if (midVal === target) return mid;
+    if ( arr[l] <= midVal) {
+      if (target > midVal || target < arr[l]) {
+        l = mid + 1;
+      } else {
+        r = mid - 1;
+      }
+    } else {
+      if (target < midVal || target > arr[r]) {
+        r = mid - 1;
+      } else {
+        l = mid + 1;
+      }
+    }
+  }
+
+  return -1;
+}
