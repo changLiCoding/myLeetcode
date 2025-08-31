@@ -25,3 +25,19 @@ function isValidCircle (head) {
 
   return false;
 }
+
+function isListACircle (list) {
+  const seen = new Set();
+
+  let cur = list;
+
+  while (cur) {
+    if (seen.has(cur)) {
+      return true;
+    }
+    seen.add(cur);
+    cur = cur.next
+  }
+
+  return false;
+}
