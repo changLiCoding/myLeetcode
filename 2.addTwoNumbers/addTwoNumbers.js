@@ -19,3 +19,23 @@ function addTwoNumbers(l1, l2) {
 
   return dummy.next;
 }
+
+function addedList (l1, l2) {
+  const dummy = {val: 0, next: null};
+  let cur = dummy;
+  let carry = 0;
+  while (l1 || l2 || carry) {
+    const value = (l1?.val ?? 0) + (l2?.val ?? 0) + carry;
+    const newNode = new ListNode(value % 10);
+
+    carry = value > 9 ? 1 : 0;
+    cur.next = newNode;
+    cur = cur.next;
+
+    l1 = l1 ?? null;
+    l2 = l2 ?? null;
+  }
+
+  return dummy.next;
+
+}
