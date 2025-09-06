@@ -39,3 +39,23 @@ function addedList (l1, l2) {
   return dummy.next;
 
 }
+
+function addTwoNumber (l1, l2) {
+  const dummy = {val: 0, next: null};
+  let cur = dummy;
+  let carry = 0;
+
+  while (l1 || l2 || carry) {
+    const value = carry + (l1?.val ?? 0) + (l2?.val ?? 0)
+    carry = Math.floor(value / 10);
+    const newNode = {val: value % 10, next: null};
+
+    cur.next = newNode;
+    cur = cur.next;
+
+    l1 = l1?.next ?? null;
+    l2 = l2?.next ?? null;
+  }
+
+  return dummy.next;
+}
