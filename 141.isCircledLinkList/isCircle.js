@@ -41,3 +41,19 @@ function isListACircle (list) {
 
   return false;
 }
+
+function isValidCircle (list) {
+  const seen = new Set();
+
+  let cur = list;
+
+  while (cur) {
+    if (seen.has(cur)) {
+      return true;
+    }
+    seen.add(cur);
+    cur = cur.next
+  }
+
+  return false;
+}
