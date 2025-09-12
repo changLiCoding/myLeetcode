@@ -44,3 +44,24 @@ const bestDeal = (nums) => {
 const bestSell = (prices) => {
 
 }
+
+const  maxProfit = (prices) => {
+  let buy = 0, sell = 1;
+
+  const res = [];
+
+  let max = - Infinity;
+  while (sell < prices.length && buy < sell) {
+    const profit = prices[sell] - prices[buy];
+    max = Math.max(max, profit);
+
+    if (prices[buy] > prices[sell] ) {
+      buy = sell;
+      sell++;
+    } else {
+      sell++;
+    }
+  }
+
+  return max
+}
