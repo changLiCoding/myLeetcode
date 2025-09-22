@@ -45,3 +45,27 @@ function mergeLinkLists (lists) {
   return dummy.next;
 
 }
+
+function merge (list1, list2) {
+  const dummy = {val: 0, next: null}
+  let cur = dummy;
+
+  while (list1 && list2) {
+    let node = {val, next: null};
+
+    if (list1.val <= list2.val) {
+      node.val = list1.val
+      list1 = list1.next
+    } else {
+      node.val = list2.val
+      list2 = list2.next;
+    }
+
+    cur.next = node;
+    cur = cur.next;
+  }
+
+  if (list1) cur.next = list1;
+  if (list2) cur.next = list2;
+  return dummy.next;
+}

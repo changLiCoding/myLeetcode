@@ -117,3 +117,17 @@ const isCircle = (head) => {
 
   return false;
 }
+
+function revertList (head) {
+  let curr = head;
+  let prev = null;
+
+  while (curr) {
+    const temp =  curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = temp;
+  }
+
+  return prev;
+}
